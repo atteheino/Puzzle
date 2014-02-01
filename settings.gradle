@@ -1,1 +1,1 @@
-include ':puzzle'
+include ':puzzle', ':android-jigsaw-puzzle-library'
