@@ -31,20 +31,21 @@ public class Mask {
 
     public Mask(Context context, boolean top, boolean right,
                 Difficulty difficulty) {
-        this(context, top, right, false, false, difficulty);
-        type = Type.CORNER;
-        mask = loadBitmap();
+        this(context, top, right, false, false, difficulty, Type.CORNER);
     }
 
     public Mask(Context context, boolean top, boolean right, boolean bottom,
                 Difficulty difficulty) {
-        this(context, top, right, bottom, false, difficulty);
-        type = Type.EDGE;
-        mask = loadBitmap();
+        this(context, top, right, bottom, false, difficulty, Type.EDGE);
     }
 
     public Mask(Context context, boolean top, boolean right, boolean bottom,
                 boolean left, Difficulty difficulty) {
+        this(context, top, right, bottom, left, difficulty, Type.FULL);
+    }
+
+    public Mask(Context context, boolean top, boolean right, boolean bottom,
+                boolean left, Difficulty difficulty, Type type) {
         super();
 
         this.context = context;
@@ -53,7 +54,7 @@ public class Mask {
         this.right = right;
         this.bottom = bottom;
         this.left = left;
-        this.type = Type.FULL;
+        this.type = type;
         this.difficulty = difficulty;
 
         fillResourceMapping();
