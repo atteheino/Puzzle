@@ -4,4 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="fi.atteheino.puzzle.MainActivity"
-    tools:ignore="MergeRootFrame" />
+    tools:ignore="MergeRootFrame">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/firstPuzzleImage"
+        android:layout_gravity="left|top"
+        android:src="@drawable/imag1858" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/difficultyButton"
+        android:layout_gravity="center_horizontal|bottom" />
+</FrameLayout>

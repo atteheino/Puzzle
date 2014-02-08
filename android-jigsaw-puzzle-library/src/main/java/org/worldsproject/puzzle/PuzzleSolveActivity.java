@@ -36,7 +36,9 @@ public class PuzzleSolveActivity extends Activity {
         image = (Bitmap) BitmapFactory.decodeResource(getResources(), puzzle);
         String difficulty = this.getIntent().getStringExtra("difficulty");
 
-        if (difficulty.equals("easy"))
+        if (difficulty.equals("supereasy"))
+            x = Difficulty.SUPEREASY;
+        else if (difficulty.equals("easy"))
             x = Difficulty.EASY;
         else if (difficulty.equals("medium"))
             x = Difficulty.MEDIUM;
