@@ -164,10 +164,10 @@ public class Mask {
         resources.put("mask_64_full_1_1_1_0", R.raw.mask_64_full_1_1_1_0);
         resources.put("mask_64_full_1_1_1_1", R.raw.mask_64_full_1_1_1_1);
 
-        resources.put("mask_124_corner_bottomleft", R.raw.mask_124_corner_bottomleft);
-        resources.put("mask_124_corner_bottomright", R.raw.mask_124_corner_bottomright);
-        resources.put("mask_124_corner_topleft", R.raw.mask_124_corner_topleft);
-        resources.put("mask_124_corner_topright", R.raw.mask_124_corner_topright);
+        resources.put("mask_124_corner_0_0", R.raw.mask_124_corner_bottomleft);
+        resources.put("mask_124_corner_0_1", R.raw.mask_124_corner_bottomright);
+        resources.put("mask_124_corner_1_0", R.raw.mask_124_corner_topleft);
+        resources.put("mask_124_corner_1_1", R.raw.mask_124_corner_topright);
     }
 
     private Bitmap loadBitmap() {

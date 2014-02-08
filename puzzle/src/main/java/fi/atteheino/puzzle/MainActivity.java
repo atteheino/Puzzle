@@ -31,7 +31,7 @@ public class MainActivity extends ActionBarActivity {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent.putExtra("image", R.id.firstPuzzleImage);
+                intent.putExtra("image", R.drawable.imag1858);
                 intent.putExtra("difficulty", difficulty);
                 MainActivity.this.startActivity(intent);
             }
