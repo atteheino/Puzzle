@@ -63,7 +63,7 @@ public class Mask {
         // With overhangs going 'outside' the piece to make it look
         // All puzzle like and pretty.
         // Because the pieces have already been make, we know the offsets.
-        if (difficulty == Difficulty.EASY)
+        if (difficulty == Difficulty.EASY || difficulty == Difficulty.SUPEREASY)
             this.offset = 10;
         else if (difficulty == Difficulty.MEDIUM)
             this.offset = 8;
@@ -163,12 +163,19 @@ public class Mask {
         resources.put("mask_64_full_1_1_0_1", R.raw.mask_64_full_1_1_0_1);
         resources.put("mask_64_full_1_1_1_0", R.raw.mask_64_full_1_1_1_0);
         resources.put("mask_64_full_1_1_1_1", R.raw.mask_64_full_1_1_1_1);
+
+        resources.put("mask_124_corner_bottomleft", R.raw.mask_124_corner_bottomleft);
+        resources.put("mask_124_corner_bottomright", R.raw.mask_124_corner_bottomright);
+        resources.put("mask_124_corner_topleft", R.raw.mask_124_corner_topleft);
+        resources.put("mask_124_corner_topright", R.raw.mask_124_corner_topright);
     }
 
     private Bitmap loadBitmap() {
         StringBuffer name = new StringBuffer("mask_");
 
-        if (difficulty == Difficulty.EASY)
+        if (difficulty == Difficulty.SUPEREASY)
+            name.append("124_");
+        else if (difficulty == Difficulty.EASY)
             name.append("64_");
         else if (difficulty == Difficulty.MEDIUM)
             name.append("48_");
