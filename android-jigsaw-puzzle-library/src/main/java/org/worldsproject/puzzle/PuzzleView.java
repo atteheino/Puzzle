@@ -42,10 +42,15 @@ public class PuzzleView extends View implements OnGestureListener,
         gesture = new GestureDetector(this.getContext(), this);
         scaleGesture = new ScaleGestureDetector(this.getContext(), this);
 
-        puzzle = new PuzzleGenerator(this.getContext()).generatePuzzle(
-                this.getContext(), image, difficulty, location);
-        puzzle.savePuzzle(getContext(), location, true);
-
+        if (difficulty.equals(Difficulty.SUPEREASY)) {
+            puzzle = new SuperEasyPuzzleGenerator(this.getContext()).generatePuzzle(
+                    this.getContext(), image, difficulty, location);
+            puzzle.savePuzzle(getContext(), location, true);
+        } else {
+            puzzle = new PuzzleGenerator(this.getContext()).generatePuzzle(
+                    this.getContext(), image, difficulty, location);
+            puzzle.savePuzzle(getContext(), location, true);
+        }
         Piece.resetSerial();
     }
 

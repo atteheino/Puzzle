@@ -8,6 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import org.worldsproject.puzzle.PuzzleSolveActivity;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -16,12 +19,23 @@ public class MainActivity extends ActionBarActivity {
     private int[] images;
     private Intent intent;
     private Button button;
+    private ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        intent = new Intent(this, PuzzleSolveActivity.class);
+        image = (ImageView) findViewById(R.id.firstPuzzleImage);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent.putExtra("image", image.getId());
+                intent.putExtra("difficulty", difficulty);
+                MainActivity.this.startActivity(intent);
+            }
+        });
 
         button = (Button) findViewById(R.id.difficultyButton);
         button.setOnClickListener(new View.OnClickListener() {
