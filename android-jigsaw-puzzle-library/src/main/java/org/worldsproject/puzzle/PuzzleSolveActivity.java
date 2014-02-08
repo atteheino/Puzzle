@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -132,13 +131,10 @@ public class PuzzleSolveActivity extends Activity {
 
     private String path(int puzzle, String difficulty) {
         String rv = null;
-        if (Environment.getExternalStorageState().equals("mounted")) {
-            rv = getExternalCacheDir().getAbsolutePath() + "/" + puzzle + "/"
-                    + difficulty + "/";
-        } else {
-            rv = getCacheDir().getAbsolutePath() + "/" + puzzle + "/"
-                    + difficulty + "/";
-        }
+
+        rv = getCacheDir().getAbsolutePath() + "/" + puzzle + "/"
+                + difficulty + "/";
+
         return rv;
     }
 }

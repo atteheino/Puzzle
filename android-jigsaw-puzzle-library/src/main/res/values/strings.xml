@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Puzzle</string>
     <string name="image_description">Puzzle to be completed.</string>
+    <string name="supereasy">Super Easy</string>
     <string name="easy">Easy</string>
     <string name="hard">Hard</string>
     <string name="medium">Medium</string>

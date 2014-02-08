@@ -1,10 +1,12 @@
 package org.worldsproject.puzzle.enums;
 
 public enum Difficulty {
-    EASY, MEDIUM, HARD;
+    SUPEREASY, EASY, MEDIUM, HARD;
 
     public int pieceSize() {
-        if (this == EASY)
+        if (this == SUPEREASY)
+            return 124;
+        else if (this == EASY)
             return 64;
         else if (this == MEDIUM)
             return 48;
@@ -13,16 +15,18 @@ public enum Difficulty {
     }
 
     public int getOffset() {
-        if (this == EASY)
+        if (this == EASY || this == SUPEREASY)
             return 10;
-        if (this == MEDIUM)
+        else if (this == MEDIUM)
             return 8;
         else
             return 5;
     }
 
     public String toString() {
-        if (this == EASY)
+        if (this == SUPEREASY)
+            return "supereasy";
+        else if (this == EASY)
             return "easy";
         else if (this == MEDIUM)
             return "medium";
@@ -31,7 +35,9 @@ public enum Difficulty {
     }
 
     public static Difficulty getEnumFromString(String e) {
-        if (e.equals("easy"))
+        if (e.equals("supereasy"))
+            return SUPEREASY;
+        else if (e.equals("easy"))
             return EASY;
         else if (e.equals("medium"))
             return MEDIUM;

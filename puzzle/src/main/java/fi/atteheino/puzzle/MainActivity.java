@@ -38,6 +38,13 @@ public class MainActivity extends ActionBarActivity {
 
         Log.v(TAG, "MainActivity OnCreate passed.");
 
+        /*int[] mImageIds = { R.drawable.imag1858, };
+
+        Intent intent = new Intent(this, PuzzleSelectActivity.class);
+        intent.putExtra("images", mImageIds);
+
+        this.startActivity(intent);*/
+
     }
 
 
