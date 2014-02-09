@@ -64,7 +64,9 @@ public class Mask {
         // With overhangs going 'outside' the piece to make it look
         // All puzzle like and pretty.
         // Because the pieces have already been make, we know the offsets.
-        if (difficulty == Difficulty.EASY || difficulty == Difficulty.SUPEREASY)
+        if (difficulty == Difficulty.SUPEREASY)
+            this.offset = 15;
+        else if (difficulty == Difficulty.EASY)
             this.offset = 10;
         else if (difficulty == Difficulty.MEDIUM)
             this.offset = 8;
