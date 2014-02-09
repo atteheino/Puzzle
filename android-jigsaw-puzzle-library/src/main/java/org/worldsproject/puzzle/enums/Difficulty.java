@@ -15,7 +15,9 @@ public enum Difficulty {
     }
 
     public int getOffset() {
-        if (this == EASY || this == SUPEREASY)
+        if (this == SUPEREASY)
+            return 15;
+        else if (this == EASY)
             return 10;
         else if (this == MEDIUM)
             return 8;
