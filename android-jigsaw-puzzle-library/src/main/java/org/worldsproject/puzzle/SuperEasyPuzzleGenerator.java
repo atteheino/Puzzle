@@ -75,7 +75,7 @@ public class SuperEasyPuzzleGenerator {
                 if (corner_number == 1) {
                     masks[i] = new Mask(context, RB(), !masks[i - 1].isRight(),
                             difficulty);
-                    masks[i].rotate(2);
+                    // masks[i].rotate(2);
                 } else if (corner_number == 2) {
                     masks[i] = new Mask(context,
                             !masks[i - puzzle_width].isBottom(), RB(),
@@ -83,7 +83,7 @@ public class SuperEasyPuzzleGenerator {
                 } else if (corner_number == 3) {
                     masks[i] = new Mask(context, !masks[i - 1].isRight(),
                             !masks[i - puzzle_width].isBottom(), difficulty);
-                    masks[i].rotate(3);
+                    //masks[i].rotate(3);
                 }
                 continue;
             }
@@ -175,7 +175,7 @@ public class SuperEasyPuzzleGenerator {
                 break;
         }
 
-        rv.rotate(1);
+        //rv.rotate(1);
         return rv;
     }
 
