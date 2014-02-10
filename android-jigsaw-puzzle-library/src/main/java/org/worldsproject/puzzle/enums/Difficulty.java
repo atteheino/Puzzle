@@ -5,7 +5,7 @@ public enum Difficulty {
 
     public int pieceSize() {
         if (this == SUPEREASY)
-            return 94;
+            return 150;
         else if (this == EASY)
             return 64;
         else if (this == MEDIUM)
@@ -16,7 +16,7 @@ public enum Difficulty {
 
     public int getOffset() {
         if (this == SUPEREASY)
-            return 15;
+            return 25;
         else if (this == EASY)
             return 10;
         else if (this == MEDIUM)
