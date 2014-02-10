@@ -32,8 +32,8 @@ public class SuperEasyPuzzleGenerator {
         this.pieceSize = difficulty.pieceSize();
         this.difficulty = difficulty;
 
-        //We are going to make a 4 piece puzzle so we know the size.
-        int wid = pieceSize * 2;
+        //We are going to make a 6 piece puzzle so we know the size.
+        int wid = pieceSize * 3;
         int hei = pieceSize * 2;
 
         this.image = Bitmap.createScaledBitmap(img, wid,
