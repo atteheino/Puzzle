@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android-jigsaw-puzzle-library/android-jigsaw-puzzle-library.iml" filepath="$PROJECT_DIR$/android-jigsaw-puzzle-library/android-jigsaw-puzzle-library.iml" />
       <module fileurl="file://$PROJECT_DIR$/puzzle.iml" filepath="$PROJECT_DIR$/puzzle.iml" />
-      <module fileurl="file://$PROJECT_DIR$/puzzle/puzzle-puzzle.iml" filepath="$PROJECT_DIR$/puzzle/puzzle-puzzle.iml" />
     </modules>
   </component>
 </project>

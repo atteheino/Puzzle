@@ -65,6 +65,7 @@ public class SuperEasyPuzzleGenerator {
         // left and right
         // alternate in appearance.
         int corner_number = 0;
+
         boolean left_edge = true;
 
         // We start at 1 because we already have our start point.
@@ -90,17 +91,15 @@ public class SuperEasyPuzzleGenerator {
 
             // This is all of the top edge cases.
             if (corner_number < 1) {
-                masks[i] = new Mask(context, RB(), RB(),
-                        !masks[i - 1].isRight(), difficulty);
-                masks[i].rotate(1);
+                masks[i] = new Mask(context, true, false,
+                        false, difficulty);
                 continue;
             }
 
             // This handles all of the bottom edge cases.
             if (corner_number == 2) {
-                masks[i] = new Mask(context, !masks[i - 1].isRight(), !masks[i
-                        - puzzle_width].isBottom(), RB(), difficulty);
-                masks[i].rotate(3);
+                masks[i] = new Mask(context, true, true,
+                        false, difficulty);
                 continue;
             }
 
