@@ -48,8 +48,8 @@ public class SuperEasyPuzzleGenerator {
         Mask[] masks = new Mask[puzzle_width * puzzle_height];
 
         // Now we have an image that is able to be cut up perfectly.
-        // We should start by generating a corner.
-        Mask startPoint = getRandomCorner();
+        // Let's pick the left upper corner. Now ths is fixed.
+        Mask startPoint = new Mask(context, true, false, difficulty);
         masks[0] = startPoint;
 
         // We need some flags. Because we are iterating through in a predictable
@@ -72,37 +72,34 @@ public class SuperEasyPuzzleGenerator {
         for (int i = 1; i < masks.length; i++) {
             if (isCorner(i, puzzle_width, puzzle_height)) {
                 corner_number++;
-
+                //righ upper cornet
                 if (corner_number == 1) {
-                    masks[i] = new Mask(context, RB(), !masks[i - 1].isRight(),
-                            difficulty);
-                    // masks[i].rotate(2);
+                    masks[i] = new Mask(context, true, true, difficulty);
+                    //left bottom corner
                 } else if (corner_number == 2) {
-                    masks[i] = new Mask(context,
-                            !masks[i - puzzle_width].isBottom(), RB(),
-                            difficulty);
+                    masks[i] = new Mask(context, false, false, difficulty);
+                    //Rign bottom corner
                 } else if (corner_number == 3) {
-                    masks[i] = new Mask(context, !masks[i - 1].isRight(),
-                            !masks[i - puzzle_width].isBottom(), difficulty);
-                    //masks[i].rotate(3);
+                    masks[i] = new Mask(context, false, true, difficulty);
                 }
                 continue;
             }
 
             // This is all of the top edge cases.
             if (corner_number < 1) {
-                masks[i] = new Mask(context, true, false,
-                        false, difficulty);
+                masks[i] = new Mask(context, true, false, false, difficulty);
+                masks[i].rotate(1);
                 continue;
             }
 
             // This handles all of the bottom edge cases.
             if (corner_number == 2) {
-                masks[i] = new Mask(context, true, true,
-                        false, difficulty);
+                masks[i] = new Mask(context, true, true, false, difficulty);
+                masks[i].rotate(3);
                 continue;
             }
 
+            /* heinatt: This is out for now. There are no left or right edges as the puzzle is so small.
             // Now the only possible edge that we could have reached so far are
             // the left
             // and right edges, so we can safely toggle.
@@ -124,6 +121,7 @@ public class SuperEasyPuzzleGenerator {
             // The only possible option now are the full pieces.
             masks[i] = new Mask(context, !(masks[i - puzzle_width].isBottom()),
                     RB(), RB(), !(masks[i - 1].isRight()), difficulty);
+        */
         }
 
         Bitmap[] images = new Bitmap[masks.length];
