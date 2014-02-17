@@ -6,17 +6,36 @@
     tools:context="fi.atteheino.puzzle.MainActivity"
     tools:ignore="MergeRootFrame">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/firstPuzzleImage"
-        android:layout_gravity="left|top"
-        android:src="@drawable/imag1858" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/difficultyButton"
         android:layout_gravity="center_horizontal|bottom"
-        android:text="@string/supereasy" />
+        android:text="@string/supereasy"
+        style="@style/AppTheme" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:background="#000000"
+        android:id="@+id/firstPuzzleImage"
+        android:layout_gravity="center"
+        android:src="@drawable/imag1858" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/select_puzzle_header"
+        android:id="@+id/SelectPuzzleHeader"
+        android:layout_gravity="center_horizontal|top"
+        android:textColor="#0910ff"
+        android:textStyle="bold"
+        android:textColorHighlight="#000000"
+        android:singleLine="false"
+        android:shadowColor="#000000"
+        android:gravity="fill_vertical" />
+
+
 </FrameLayout>

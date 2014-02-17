@@ -133,7 +133,6 @@ public class SuperEasyPuzzleGenerator {
                         pieceSize + (2 * offset), Bitmap.Config.ARGB_8888);
 
                 Canvas c = new Canvas(store);
-
                 c.drawBitmap(this.image, -x + offset, -y + offset, null);
 
                 Paint paint = new Paint();

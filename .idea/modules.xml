@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Puzzle.iml" filepath="$PROJECT_DIR$/Puzzle.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-jigsaw-puzzle-library/android-jigsaw-puzzle-library.iml" filepath="$PROJECT_DIR$/android-jigsaw-puzzle-library/android-jigsaw-puzzle-library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/puzzle/puzzle.iml" filepath="$PROJECT_DIR$/puzzle/puzzle.iml" />
       <module fileurl="file://$PROJECT_DIR$/puzzle.iml" filepath="$PROJECT_DIR$/puzzle.iml" />
     </modules>
   </component>
