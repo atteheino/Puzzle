@@ -32,15 +32,40 @@
             android:layout_height="200dp"
             android:padding="10dp"
             android:id="@+id/firstPuzzleImage"
-            android:src="@drawable/imag1858" />
+            android:src="@drawable/imag1858"
+            android:background="@drawable/background" />
 
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:padding="10dp"
             android:id="@+id/secondPuzzleImage"
-            android:src="@drawable/Koala" />
+            android:src="@drawable/koala"
+            android:background="@drawable/background" />
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageContainer2">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:padding="10dp"
+            android:id="@+id/thirdPuzzleImage"
+            android:src="@drawable/penguins"
+            android:background="@drawable/background" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:padding="10dp"
+            android:id="@+id/fourthPuzzleImage"
+            android:src="@drawable/tulips"
+            android:background="@drawable/background" />
 
     </LinearLayout>
 
