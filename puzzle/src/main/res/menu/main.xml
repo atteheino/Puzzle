@@ -6,6 +6,29 @@
     <item
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+        android:orderInCategory="100">
+        <menu> 
+            <item android:id="@+id/menu_difficulty"
+                  android:title="@string/menu_difficulty">
+                <menu>
+                  <group android:checkableBehavior="single">
+                    <item android:id="@+id/menu_difficulty_supereasy"
+                          android:title="@string/menu_difficulty_supereasy"/>
+                    <item android:id="@+id/menu_difficulty_easy"
+                          android:title="@string/menu_difficulty_easy"/>
+                    <item android:id="@+id/menu_difficulty_medium"
+                          android:title="@string/menu_difficulty_medium"/>
+                    <item android:id="@+id/menu_difficulty_hard"
+                          android:title="@string/menu_difficulty_hard"/>
+                  </group>          
+                </menu>
+            </item>
+            <item android:id="@+id/menu_new_game"
+                  android:title="@string/menu_new_game" />
+            <item android:id="@+id/menu_reset"
+                  android:title="@string/menu_reset" />
+    
+        </menu>
+    </item>   
+    
 </menu>
