@@ -19,7 +19,11 @@ public class MainActivity extends ActionBarActivity {
     private int[] images;
     private Intent intent;
     private Button button;
-    private ImageView image;
+    private ImageView firstImage;
+    private ImageView secondImage;
+    private ImageView thirdImage;
+    private ImageView fourthImage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +31,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         intent = new Intent(this, PuzzleSolveActivity.class);
-        image = (ImageView) findViewById(R.id.firstPuzzleImage);
-        image.setOnClickListener(new View.OnClickListener() {
+        firstImage = (ImageView) findViewById(R.id.firstPuzzleImage);
+        firstImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 intent.putExtra("image", R.drawable.imag1858);
@@ -37,27 +41,35 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        button = (Button) findViewById(R.id.difficultyButton);
-        button.setOnClickListener(new View.OnClickListener() {
+        secondImage = (ImageView) findViewById(R.id.secondPuzzleImage);
+        secondImage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (difficulty.equals("supereasy")) {
-                    difficulty = "easy";
-                    button.setText(org.worldsproject.puzzle.R.string.easy);
-                } else if (difficulty.equals("easy")) {
-                    difficulty = "medium";
-                    button.setText(org.worldsproject.puzzle.R.string.medium);
-                } else if (difficulty.equals("medium")) {
-                    difficulty = "hard";
-                    button.setText(org.worldsproject.puzzle.R.string.hard);
-                } else {
-                    difficulty = "supereasy";
-                    button.setText(org.worldsproject.puzzle.R.string.supereasy);
-                }
+            public void onClick(View view) {
+                intent.putExtra("image", R.drawable.koala);
+                intent.putExtra("difficulty", difficulty);
+                MainActivity.this.startActivity(intent);
             }
-
         });
 
+        thirdImage = (ImageView) findViewById(R.id.thirdPuzzleImage);
+        thirdImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent.putExtra("image", R.drawable.penguins);
+                intent.putExtra("difficulty", difficulty);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        fourthImage = (ImageView) findViewById(R.id.firstPuzzleImage);
+        fourthImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent.putExtra("image", R.drawable.tulips);
+                intent.putExtra("difficulty", difficulty);
+                MainActivity.this.startActivity(intent);
+            }
+        });
 
         Log.v(TAG, "MainActivity OnCreate passed.");
     }
@@ -76,11 +88,29 @@ public class MainActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                return true;
+            case R.id.menu_difficulty_supereasy:
+                return setDifficulty(item, "supereasy");
+            case R.id.menu_difficulty_easy:
+                return setDifficulty(item, "easy");
+            case R.id.menu_difficulty_medium:
+                return setDifficulty(item, "medium");
+            case R.id.menu_difficulty_hard:
+                return setDifficulty(item, "hard");
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+
+    }
+
+    private boolean setDifficulty(MenuItem item, String difficulty) {
+        if (item.isChecked()) item.setChecked(false);
+        else item.setChecked(true);
+        this.difficulty = difficulty;
+        return true;
     }
 
 }
