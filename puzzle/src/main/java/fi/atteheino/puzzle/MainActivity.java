@@ -61,7 +61,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        fourthImage = (ImageView) findViewById(R.id.firstPuzzleImage);
+        fourthImage = (ImageView) findViewById(R.id.fourthPuzzleImage);
         fourthImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
