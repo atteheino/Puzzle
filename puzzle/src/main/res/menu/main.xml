@@ -27,12 +27,6 @@
                     </group>
                 </menu>
             </item>
-            <item
-                android:id="@+id/menu_new_game"
-                android:title="@string/menu_new_game" />
-            <item
-                android:id="@+id/menu_reset"
-                android:title="@string/menu_reset" />
 
         </menu>
     </item>

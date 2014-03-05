@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -139,4 +141,32 @@ public class PuzzleSolveActivity extends Activity {
 
         return rv;
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+
+        switch (item.getItemId()) {
+            case R.id.menu_new_game:
+                return true;
+            case R.id.menu_reset:
+                return setDifficulty(item, "supereasy");
+            case R.id.show_cover:
+                return setDifficulty(item, "easy");
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
 }
