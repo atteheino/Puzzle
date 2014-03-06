@@ -4,12 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="org.worldsproject.puzzle.PuzzleSolveActivity">
     <item
-        android:id="@+id/menu_new_game"
-        android:title="@string/menu_new_game" />
-    <item
-        android:id="@+id/menu_reset"
-        android:title="@string/menu_reset" />
-    <item
-        android:id="@+id/show_cover"
-        android:title="@string/show_cover" />
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_action_overflow">
+        <menu>
+            <item
+                android:id="@+id/menu_new_game"
+                android:title="@string/menu_new_game" />
+            <item
+                android:id="@+id/menu_reset"
+                android:title="@string/menu_reset" />
+            <item
+                android:id="@+id/show_cover"
+                android:title="@string/show_cover" />
+        </menu>
+    </item>
 </menu>
