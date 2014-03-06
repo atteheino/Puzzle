@@ -40,7 +40,7 @@ public class PuzzleView extends View implements OnGestureListener,
 
     public void loadPuzzle(Bitmap image, Difficulty difficulty, String location) {
         gesture = new GestureDetector(this.getContext(), this);
-        scaleGesture = new ScaleGestureDetector(this.getContext(), this);
+        //scaleGesture = new ScaleGestureDetector(this.getContext(), this);
 
         if (difficulty.equals(Difficulty.SUPEREASY)) {
             puzzle = new SuperEasyPuzzleGenerator(this.getContext()).generatePuzzle(
@@ -56,7 +56,7 @@ public class PuzzleView extends View implements OnGestureListener,
 
     public void loadPuzzle(String location) {
         gesture = new GestureDetector(this.getContext(), this);
-        scaleGesture = new ScaleGestureDetector(this.getContext(), this);
+        //scaleGesture = new ScaleGestureDetector(this.getContext(), this);
 
         puzzle = new Puzzle(this.getContext(), location);
         firstDraw = false;
@@ -81,7 +81,7 @@ public class PuzzleView extends View implements OnGestureListener,
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        scaleGesture.onTouchEvent(event);
+        //scaleGesture.onTouchEvent(event);
         gesture.onTouchEvent(event);
         return true;
     }

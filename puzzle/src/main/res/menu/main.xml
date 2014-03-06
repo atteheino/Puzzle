@@ -6,8 +6,8 @@
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:icon="@drawable/ic_action_overflow">
-    <menu>
-            <item
+        <menu>
+        <item
                 android:id="@+id/menu_difficulty"
                 android:title="@string/menu_difficulty">
                 <menu>
