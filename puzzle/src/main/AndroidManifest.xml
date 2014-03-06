@@ -18,8 +18,7 @@
         </activity>
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-        <activity android:name="org.worldsproject.puzzle.PuzzleSolveActivity" >
-        </activity>
+        <activity android:name="fi.atteheino.puzzle.SolvePuzzleActivity"></activity>
 
 
     </application>

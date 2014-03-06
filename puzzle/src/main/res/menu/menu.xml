@@ -5,8 +5,9 @@
     tools:context="org.worldsproject.puzzle.PuzzleSolveActivity">
     <item
         android:id="@+id/settings"
-        android:icon="@drawable/ic_action_overflow">
-        <menu>
+        android:icon="@drawable/ic_action_overflow"
+        android:showAsAction="always">
+    <menu>
             <item
                 android:id="@+id/menu_new_game"
                 android:title="@string/menu_new_game" />
