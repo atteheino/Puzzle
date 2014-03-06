@@ -28,16 +28,18 @@
         android:id="@+id/imageContainer">
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
             android:padding="10dp"
             android:id="@+id/firstPuzzleImage"
             android:src="@drawable/imag1858"
             android:background="@drawable/background" />
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
             android:padding="10dp"
             android:id="@+id/secondPuzzleImage"
             android:src="@drawable/koala"
@@ -52,16 +54,18 @@
         android:id="@+id/imageContainer2">
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
             android:padding="10dp"
             android:id="@+id/thirdPuzzleImage"
             android:src="@drawable/penguins"
             android:background="@drawable/background" />
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
             android:padding="10dp"
             android:id="@+id/fourthPuzzleImage"
             android:src="@drawable/tulips"
