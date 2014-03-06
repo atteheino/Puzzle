@@ -11,6 +11,8 @@
     <string name="menu_difficulty_easy">Helppo</string>
     <string name="menu_difficulty_medium">Keskivaikea</string>
     <string name="menu_difficulty_hard">Vaikea</string>
-
+    <string name="menu_new_game">Uusi peli</string>
+    <string name="menu_reset">Aloita alusta</string>
+    <string name="show_cover">Näytä kuva</string>
 
 </resources>
