@@ -30,21 +30,29 @@ public class Puzzle {
 
     private final ArrayList<Piece> pieces = new ArrayList<Piece>();
     private final int width;
+    private Bitmap shadow;
 
     public Puzzle(Context c, String location) {
         this.width = this.loadPuzzle(c, location);
-
+        this.shadow = null;
         this.findNeighbors(width);
     }
 
     public Puzzle(Context c, Bitmap[] images, String location, int width, Difficulty d) {
+        this(c, images, location, width, d, null);
+    }
+
+    public Puzzle(Context c, Bitmap[] images, String location, int width, Difficulty d, Bitmap shadow) {
+
         for (int i = 0; i < images.length; i++) {
             pieces.add(new Piece(c, images[i], d.getOffset()));
         }
 
         this.width = width;
+        this.shadow = shadow;
         findNeighbors(width);
     }
+
 
     private void findNeighbors(int width) {
         // Here we calculate all of the neighbors of each piece.
@@ -80,9 +88,13 @@ public class Puzzle {
     }
 
     public void draw(Canvas c) {
+        if (shadow != null) {
+            c.drawBitmap(shadow, 20, 20, null);
+        }
         for (Piece p : this.pieces) {
             p.draw(c);
         }
+
     }
 
     public ArrayList<Piece> getPieces() {
@@ -129,6 +141,7 @@ public class Puzzle {
         array.put(this.pieces.get(0).getOffset());
         array.put(this.width);
 
+
         for (Piece p : this.pieces) {
             JSONObject obj = new JSONObject();
 
@@ -149,6 +162,8 @@ public class Puzzle {
                 writeImages(location, p);
             }
         }
+
+        storeShadow(location, this.shadow);
 
         String puzzleData = array.toString();
         PrintWriter output = null;
@@ -174,6 +189,25 @@ public class Puzzle {
                         + p.getSerial() + ".png");
 
                 p.getOriginal().compress(Bitmap.CompressFormat.PNG, 90, out);
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void storeShadow(String location, Bitmap Shadow) {
+        try {
+            File checkExists = new File(location + "shadow.png");
+
+            if (checkExists.exists() == false) {
+                (new File(location)).mkdirs();
+                checkExists.createNewFile();
+
+                FileOutputStream out = new FileOutputStream(location
+                        + "shadow.png");
+
+                shadow.compress(Bitmap.CompressFormat.PNG, 90, out);
             }
 
         } catch (IOException e) {
@@ -218,6 +252,8 @@ public class Puzzle {
 
         int offset = items.optInt(0);
         int width = items.optInt(1);
+
+        shadow = BitmapFactory.decodeFile(location + "shadow.png");
 
         HashMap<Integer, PuzzleGroup> groupMap = new HashMap<Integer, PuzzleGroup>();
 

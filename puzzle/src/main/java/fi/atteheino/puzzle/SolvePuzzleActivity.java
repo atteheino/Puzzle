@@ -89,6 +89,7 @@ public class SolvePuzzleActivity extends Activity {
         b.putString("difficulty", x.toString());
     }
 
+    //TODO: Must store also shadow..
     @Override
     public void onRestoreInstanceState(Bundle b) {
         super.onRestoreInstanceState(b);
@@ -128,10 +129,13 @@ public class SolvePuzzleActivity extends Activity {
 
         switch (item.getItemId()) {
             case R.id.menu_new_game:
+                finish();
                 return true;
             case R.id.menu_reset:
+                pv.shuffle();
                 return true;
             case R.id.show_cover:
+                preview_dialog.show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
