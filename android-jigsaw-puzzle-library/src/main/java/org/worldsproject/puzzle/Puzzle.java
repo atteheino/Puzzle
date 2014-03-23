@@ -34,7 +34,6 @@ public class Puzzle {
 
     public Puzzle(Context c, String location) {
         this.width = this.loadPuzzle(c, location);
-        this.shadow = null;
         this.findNeighbors(width);
     }
 

@@ -150,7 +150,7 @@ public class SuperEasyPuzzleGenerator {
         Bitmap puzzleShadow = Bitmap.createBitmap(wid + (2 * offset), hei + (2 * offset), Bitmap.Config.ARGB_8888);
         Canvas puzzleShadowCanvas = new Canvas(puzzleShadow);
         Paint paint = new Paint();
-        paint.setAlpha(150);
+        paint.setAlpha(50);
         paint.setColor(Color.GRAY);
         for (int y = 0; y < this.image.getHeight(); y += this.pieceSize) {
             for (int x = 0; x < this.image.getWidth(); x += this.pieceSize) {

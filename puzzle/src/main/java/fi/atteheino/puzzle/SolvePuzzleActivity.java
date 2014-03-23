@@ -89,7 +89,7 @@ public class SolvePuzzleActivity extends Activity {
         b.putString("difficulty", x.toString());
     }
 
-    //TODO: Must store also shadow..
+
     @Override
     public void onRestoreInstanceState(Bundle b) {
         super.onRestoreInstanceState(b);
