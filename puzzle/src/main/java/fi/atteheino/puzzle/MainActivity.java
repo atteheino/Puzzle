@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.io.File;
+
 public class MainActivity extends Activity {
 
     private static final String TAG = "MainActivity";
@@ -34,6 +36,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 intent.putExtra("image", R.drawable.imag1858);
+                intent.putExtra("image_shadow", R.drawable.imag1858_shadow);
                 intent.putExtra("difficulty", difficulty);
                 MainActivity.this.startActivity(intent);
             }
@@ -99,6 +102,8 @@ public class MainActivity extends Activity {
                 return setDifficulty(item, "medium");
             case R.id.menu_difficulty_hard:
                 return setDifficulty(item, "hard");
+            case R.id.menu_clean_cache:
+                return cleanDataDir();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -110,6 +115,23 @@ public class MainActivity extends Activity {
         else item.setChecked(true);
         this.difficulty = difficulty;
         return true;
+    }
+
+    private boolean cleanDataDir() {
+        File cache = getCacheDir();
+        recurseDelete(cache);
+        return true;
+    }
+
+    private void recurseDelete(File cache) {
+        File[] dirList = cache.listFiles();
+        for (File file : dirList) {
+            if (file.isDirectory() && file.list().length > 0) {
+                recurseDelete(file);
+            } else {
+                file.delete();
+            }
+        }
     }
 
 }

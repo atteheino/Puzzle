@@ -38,13 +38,13 @@ public class PuzzleView extends View implements OnGestureListener,
         super(context, attrs);
     }
 
-    public void loadPuzzle(Bitmap image, Difficulty difficulty, String location) {
+    public void loadPuzzle(Bitmap image, Difficulty difficulty, String location, Bitmap shadow) {
         gesture = new GestureDetector(this.getContext(), this);
         //scaleGesture = new ScaleGestureDetector(this.getContext(), this);
 
         if (difficulty.equals(Difficulty.SUPEREASY)) {
             puzzle = new SuperEasyPuzzleGenerator(this.getContext()).generatePuzzle(
-                    this.getContext(), image, difficulty, location);
+                    this.getContext(), image, difficulty, location, shadow);
             puzzle.savePuzzle(getContext(), location, true);
         } else {
             puzzle = new PuzzleGenerator(this.getContext()).generatePuzzle(

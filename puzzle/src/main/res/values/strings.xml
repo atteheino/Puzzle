@@ -14,5 +14,6 @@
     <string name="menu_new_game">Uusi peli</string>
     <string name="menu_reset">Aloita alusta</string>
     <string name="show_cover">Näytä kuva</string>
+    <string name="menu_clean_cache">Tyhjennä välimuisti</string>
 
 </resources>

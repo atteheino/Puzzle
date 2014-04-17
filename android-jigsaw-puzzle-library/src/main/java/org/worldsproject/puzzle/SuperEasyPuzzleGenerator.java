@@ -17,6 +17,7 @@ public class SuperEasyPuzzleGenerator {
 
     private Context context;
     private Bitmap image;
+    private Bitmap shadow;
     private int pieceSize;
     private Difficulty difficulty;
 
@@ -27,7 +28,7 @@ public class SuperEasyPuzzleGenerator {
     }
 
     public Puzzle generatePuzzle(Context context, Bitmap img,
-                                 Difficulty difficulty, String location) {
+                                 Difficulty difficulty, String location, Bitmap shadow) {
         // Do we need to scale, and if so, by how much?
         this.pieceSize = difficulty.pieceSize();
         this.difficulty = difficulty;
@@ -38,6 +39,7 @@ public class SuperEasyPuzzleGenerator {
 
         this.image = Bitmap.createScaledBitmap(img, wid,
                 hei, false);
+        this.shadow = Bitmap.createScaledBitmap(shadow, wid + 10, hei + 10, false);
         // Now we need to get our width and height.
         int puzzle_width = (this.image.getWidth() / this.pieceSize);
         int puzzle_height = (this.image.getHeight() / this.pieceSize);
@@ -145,21 +147,7 @@ public class SuperEasyPuzzleGenerator {
                 position++;
             }
         }
-
-        position = 0;
-        Bitmap puzzleShadow = Bitmap.createBitmap(wid + (2 * offset), hei + (2 * offset), Bitmap.Config.ARGB_8888);
-        Canvas puzzleShadowCanvas = new Canvas(puzzleShadow);
-        Paint paint = new Paint();
-        paint.setAlpha(50);
-        paint.setColor(Color.GRAY);
-        for (int y = 0; y < this.image.getHeight(); y += this.pieceSize) {
-            for (int x = 0; x < this.image.getWidth(); x += this.pieceSize) {
-                puzzleShadowCanvas.drawBitmap(images[position], x, y, paint);
-                position++;
-            }
-        }
-
-        return new Puzzle(context, images, location, puzzle_width, difficulty, puzzleShadow);
+        return new Puzzle(context, images, location, puzzle_width, difficulty, this.shadow);
     }
 
     /*

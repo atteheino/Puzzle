@@ -28,8 +28,11 @@
                     </group>
                 </menu>
             </item>
+        <item
+            android:id="@+id/menu_clean_cache"
+            android:title="@string/menu_clean_cache" />
 
-        </menu>
+    </menu>
     </item>
 
 </menu>

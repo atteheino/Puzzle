@@ -20,8 +20,10 @@ import java.io.File;
 public class PuzzleSolveActivity extends Activity {
     private PuzzleView pv;
     private Bitmap image;
+    private Bitmap shadow;
     private Difficulty x;
     private int puzzle;
+    private int puzzleShadow;
 
     private AlertDialog.Builder builder;
     private AlertDialog alert;
@@ -33,7 +35,9 @@ public class PuzzleSolveActivity extends Activity {
         builder = new AlertDialog.Builder(this);
 
         puzzle = this.getIntent().getIntExtra("image", 0);
+        puzzleShadow = this.getIntent().getIntExtra("image_shadow", 0);
         image = (Bitmap) BitmapFactory.decodeResource(getResources(), puzzle);
+        shadow = (Bitmap) BitmapFactory.decodeResource(getResources(), puzzleShadow);
         String difficulty = this.getIntent().getStringExtra("difficulty");
 
         if (difficulty.equals("supereasy"))
@@ -53,7 +57,7 @@ public class PuzzleSolveActivity extends Activity {
         if (testExistance != null && testExistance.exists()) {
             pv.loadPuzzle(path(puzzle, x.toString()));
         } else {
-            pv.loadPuzzle(image, x, path(puzzle, x.toString()));
+            pv.loadPuzzle(image, x, path(puzzle, x.toString()), shadow);
         }
 
         preview_view = (ImageView) getLayoutInflater().inflate(
@@ -120,6 +124,7 @@ public class PuzzleSolveActivity extends Activity {
     public void onSaveInstanceState(Bundle b) {
         super.onSaveInstanceState(b);
         b.putInt("puzzle", puzzle);
+        b.putInt("puzzle_shadow", puzzleShadow);
         b.putString("difficulty", x.toString());
     }
 
@@ -127,6 +132,7 @@ public class PuzzleSolveActivity extends Activity {
     public void onRestoreInstanceState(Bundle b) {
         super.onRestoreInstanceState(b);
         puzzle = b.getInt("puzzle");
+        puzzleShadow = b.getInt("puzzle_shadow");
         x = Difficulty.getEnumFromString(b.getString("difficulty"));
         pv.loadPuzzle(path(puzzle, x.toString()));
     }
